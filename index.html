@@ -1,0 +1,434 @@
+<!DOCTYPE html><script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Amazon Presseschau",
+  "schemaVersion": 1,
+  "description": "Wiederkehrende Amazon-/Retail-Media-Presseschau für rankk (Seller Central, Vendor Central, Amazon Advertising, Amazon DSP). Lesezeit-Budget 20 Min, mit Quell-Links. Wird wöchentlich (Mo) aktualisiert."
+}
+</script>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rankk · Amazon Presseschau</title>
+<style>
+:root{
+  color-scheme: light;
+  --green:#002E2E; --green10:#194343;
+  --cyan:#008787; --cyan25:#41A6A6;
+  --peach:#FE8F7D; --peach25:#FEAB9E; --peach50:#FFC7BE;
+  --yellow:#FFE798; --yellow50:#FFF3CC;
+  --grey:#FAFAFA; --grey2:#F0F0F0;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:"Degular","Calibri",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--green);background:var(--grey);line-height:1.55;}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px 64px;}
+a{color:var(--cyan);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* HEADER */
+header.hero{background:var(--green);color:#fff;border-radius:0 0 20px 20px;padding:26px 30px 30px;}
+.hero-inner{max-width:860px;margin:0 auto;}
+.logo{width:118px;height:auto;display:block;margin-bottom:18px;}
+.claim{color:var(--peach25);font-size:13px;letter-spacing:.04em;margin:0 0 22px;}
+.tagline{color:var(--peach);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 6px;}
+.hero h1{font-size:30px;margin:0 0 10px;color:#fff;font-weight:700;}
+.hero .meta{color:#BcdAda;color:rgba(255,255,255,.72);font-size:13px;margin:0;}
+.badges{margin-top:16px;}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px;margin:4px 6px 0 0;}
+.b-budget{background:var(--yellow);color:var(--green);}
+.b-live{background:var(--peach);color:var(--green);}
+.b-week{background:var(--cyan);color:#fff;}
+.navrow{margin-top:18px;}
+.navrow a{display:inline-block;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;margin-right:8px;}
+.navrow a:hover{background:rgba(255,255,255,.12);text-decoration:none;}
+
+/* SECTION TITLES */
+.sectionhead{margin:34px 4px 10px;}
+.sectionhead .tagline{color:var(--cyan);}
+.sectionhead h2{font-size:23px;margin:0;color:var(--green);}
+
+/* CARDS */
+section.card{background:#fff;border:1px solid var(--grey2);border-radius:16px;padding:22px 26px;margin-bottom:16px;box-shadow:0 1px 2px rgba(0,46,46,.04);}
+.card .read{font-size:12px;color:var(--cyan25);float:right;font-weight:700;}
+.blocknum{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:var(--cyan);color:#fff;font-weight:700;font-size:15px;margin-right:9px;vertical-align:middle;}
+.blocklabel{color:var(--cyan);font-weight:700;font-size:12px;letter-spacing:.07em;text-transform:uppercase;margin:0 0 4px;display:flex;align-items:center;}
+.card h3{font-size:19px;margin:4px 0 14px;color:var(--green);}
+.item{padding:13px 0;border-top:1px solid var(--grey2);}
+.item:first-of-type{border-top:none;}
+.item p{margin:0 0 10px;}
+.src{font-size:12px;color:var(--green10);opacity:.85;}
+section.card.intro{background:var(--green);color:#fff;border:none;}
+section.card.intro .blocklabel{color:var(--peach);}
+section.card.intro h3,section.card.intro p{color:#fff;}
+.takeaway{background:var(--yellow);border-left:4px solid var(--cyan);padding:11px 15px;border-radius:0 8px 8px 0;font-size:14px;color:var(--green);margin:8px 0 4px;}
+.takeaway.hot{background:var(--peach50);border-left-color:var(--peach);}
+
+/* ARCHIVE */
+.archive{margin-top:8px;}
+.monthgroup{margin-bottom:14px;}
+.monthhead{font-weight:700;font-size:15px;color:var(--green);background:var(--yellow50);border-radius:10px;padding:9px 16px;margin:0 0 8px;}
+details.weekentry{background:#fff;border:1px solid var(--grey2);border-radius:12px;margin-bottom:8px;overflow:hidden;}
+details.weekentry > summary{cursor:pointer;padding:13px 18px;font-weight:600;color:var(--green);list-style:none;display:flex;justify-content:space-between;align-items:center;}
+details.weekentry > summary::-webkit-details-marker{display:none;}
+details.weekentry > summary .kw{color:var(--cyan);font-weight:700;}
+details.weekentry > summary::after{content:"▾";color:var(--cyan);font-size:13px;}
+details.weekentry[open] > summary::after{content:"▴";}
+.weekbody{padding:4px 18px 16px;border-top:1px solid var(--grey2);}
+.weekbody h4{color:var(--cyan);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:14px 0 4px;}
+.weekbody p{font-size:14px;margin:0 0 8px;}
+.placeholder{color:var(--green10);opacity:.8;font-size:14px;padding:6px 2px;}
+
+footer.foot{margin-top:30px;text-align:center;color:var(--green10);font-size:12px;line-height:1.7;}
+footer.foot .fclaim{color:var(--peach);font-weight:700;}
+@media(max-width:600px){.card .read{float:none;display:block;margin-bottom:4px;}.hero h1{font-size:25px;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <svg class="logo" viewBox="0 0 1534 692.2" xmlns="http://www.w3.org/2000/svg" aria-label="rankk"><path fill="#FE8F7D" d="M544.19,286.63V157.9c0-5.47-4.43-9.9-9.9-9.9h-227.76c-5.47,0-9.9,4.43-9.9,9.9v113.88c0,13.67-11.09,24.76-24.76,24.76h-113.88c-5.47,0-9.9,4.43-9.9,9.9v128.74c0,5.47,4.43,9.9,9.9,9.9h113.88c13.67,0,24.76,11.08,24.76,24.76v64.37c0,5.47,4.43,9.9,9.9,9.9h79.22c5.47,0,9.9-4.43,9.9-9.9v-79.23c0-5.47-4.43-9.9-9.9-9.9h-64.37c-13.67,0-24.76-11.09-24.76-24.76v-99.03c0-13.67,11.08-24.76,24.76-24.76h212.91c5.47,0,9.9-4.43,9.9-9.9Z"/><path fill="#FE8F7D" d="M593.7,544.2v-167.91l38.56-9.86v53.33l3.42,.37c10.23-43.12,26.86-55.59,52.58-55.59h6.44v45.77h-9.83c-37.46,0-50.7,13.24-50.7,49.56v84.35h-40.47Z"/><path fill="#FE8F7D" d="M816.95,477.24v-7.18h-46.14c-20.42,0-32.16,7.56-32.16,22.32,0,12.86,7.94,23.82,31.02,23.82,28.37,0,47.28-16.63,47.28-38.96m1.88,24.6h-4.16c-9.05,28.75-29.51,46.16-60.89,46.16s-54.08-15.14-54.08-49.95c0-31.77,19.28-54.84,64.31-54.84h52.95v-12.11c0-23.08-9.46-36.31-34.44-36.31-20.79,0-32.9,10.59-37.42,31.4l-38.59-8.7c6.8-33.68,32.16-55.24,77.56-55.24,51.44,0,73.36,24.21,73.36,68.47v113.49h-38.59v-42.37Z"/><path fill="#FE8F7D" d="M919.54,544.2h-40.47v-167.91l39.7-9.86v46.89h3.42c9.82-32.91,32.52-51.44,62.4-51.44,37.08,0,54.86,24.96,54.86,63.54v118.78h-40.47v-108.19c0-21.56-9.46-37.45-34.03-37.45-27.26,0-45.4,18.16-45.4,45.02v100.63Z"/><polygon fill="#FE8F7D" points="1102.34 439.42 1111.32 439.42 1156.78 381.11 1203.29 381.11 1203.29 385.27 1143.47 453.8 1218.75 540.04 1218.75 544.2 1172.21 544.2 1111.32 469.68 1102.34 469.68 1102.34 544.2 1061.5 544.2 1061.5 306.4 1102.34 296.54 1102.34 439.42"/><polygon fill="#FE8F7D" points="1228.68 306.4 1228.68 544.2 1269.52 544.2 1269.52 469.68 1278.49 469.68 1339.39 544.2 1385.93 544.2 1385.93 540.04 1310.65 453.8 1370.47 385.27 1370.47 381.11 1323.96 381.11 1278.49 439.42 1269.52 439.42 1269.52 296.54 1228.68 306.4"/></svg>
+    <p class="claim">sales are better at the top.</p>
+    <p class="tagline">Amazon &amp; Retail-Media · Medienspiegel</p>
+    <h1>Amazon Presseschau</h1>
+    <p class="meta">Wöchentlich · zusammengestellt von Andre Unkrig · Seller Central · Vendor Central · Amazon Advertising · DSP</p>
+    <div class="badges">
+      <span class="badge b-week">KW 35 · 24.–30. August 2026</span>
+      <span class="badge b-budget">⏱ Lesezeit ~13 Min (Budget 20)</span>
+      <span class="badge b-live">● Quellen live: offizielle Seller News, LinkedIn-Stimmen (7 Profile), Nottorf-Radar #7, WebSearch &amp; PPC.land</span>
+    </div>
+    <div class="navrow">
+      <a href="#aktuell">Aktuelle Woche</a>
+      <a href="#archiv">Archiv</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="sectionhead" id="aktuell">
+    <p class="tagline">Aktuelle Woche · KW 35</p>
+    <h2>Diese Woche im Überblick</h2>
+  </div>
+
+  <section class="card intro">
+    <p class="blocklabel">In 60 Sekunden</p>
+    <h3>Das Wichtigste zuerst</h3>
+    <p>Zwei Termine setzen den Takt. Im <b>Compliance</b>-Block wird <b>heute (24. August) die BSA-Änderung wirksam</b>: Verkäufer dürfen ihre Rechte/Pflichten aus dem Business Solutions Agreement nicht mehr übertragen und keine künftigen Amazon-Umsätze mehr verpfänden – das schließt Account-Verkäufe an Aggregatoren und die umsatzbasierte Finanzierung gegen Amazon-Auszahlungen. Und der Q4-Fahrplan steht: Die <b>Prime Big Deal Days sind auf den 7.–8. Oktober terminiert, Deal-Anmeldeschluss ist der 8. September</b>. Bei <b>Content</b> verschiebt sich der A+-Standard 2026 hörbar weg vom Studio-Look hin zu authentischen Lifestyle-Szenen. Im <b>SEO/GEO</b>-Block bleibt die Titel-Umstellung das Dauerthema: Amazons KI stellt nicht-konforme Titel weiter um, migrierte Highlights zahlen jetzt in den Q4-Anlauf ein. Und im <b>Performance Marketing</b> verdichtet sich Nottorfs Befund aus Radar #7 (20. Aug): Amazon erschließt in Serie neue Werbefläche – Sponsored Products laufen jetzt standardmäßig auch <b>außerhalb</b> von Amazon (Gebotsanpassungen greifen dort nicht) – und macht dieses Inventar über die kommende „Black Box" monetarisierbar. Dazu baut die DSP Inventar &amp; Messung weiter aus.</p>
+  </section>
+
+  <section class="card">
+    <span class="read">~3,5 Min</span>
+    <p class="blocklabel"><span class="blocknum">1</span> Allgemein, Compliance &amp; Programm-Änderungen</p>
+    <h3>Regeln, Gebühren, Programme</h3>
+    <div class="item">
+      <p><b>🔥 Heute wirksam (24. August): BSA-Änderung zu Übertragung &amp; Verpfändung.</b> Ab dem 24. August darf ein Verkäufer seine Rechte oder Pflichten aus dem Business Solutions Agreement weder übertragen noch als Sicherheit verpfänden (angekündigt bereits am 29. Mai). Das schließt zwei seit Jahren genutzte Wege: den Verkauf eines Amazon-Kontos an Dritte (Aggregatoren) und die Verpfändung künftiger Amazon-Umsätze als Sicherheit für externe Finanzierung. Betroffen ist ein relevanter Teil der Seller mit 100 k–1 Mio. $/Monat, die Wareneinkauf über Fazilitäten finanzieren, die ganz oder teilweise durch künftige Amazon-Auszahlungen besichert sind.</p>
+      <div class="takeaway hot"><b>Takeaway:</b> Falls ein Kunde mit umsatzbasierter Finanzierung (Cashflow-Vorschuss gegen Amazon-Auszahlungen) oder mit einem laufenden Verkaufs-/Aggregator-Prozess arbeitet: jetzt die Rechtslage mit Finanzierungspartner bzw. Anwalt prüfen – die alte Besicherungskonstruktion ist ab heute nicht mehr vertragskonform.</div>
+      <p class="src">Quellen: <a href="https://novadata.io/resources/news/amazon-bsa-account-transfer-ban-august-2026">Nova Analytics</a> · <a href="http://www.amazonsellers.attorney/blog/amazons-august-24-2026-bsa-change-what-the-new-transfer-and-pledging-rules-mean-for-account-sales-aggregator-deals-and-revenue-based-lending">Amazon Sellers Attorney</a> · <a href="https://www.velocitysellers.com/2026/08/03/amazon-bsa-update-august-24-2026-transfer-pledge/">Velocity Sellers</a></p>
+    </div>
+    <div class="item">
+      <p><b>🔥 Q4-Fahrplan steht: Prime Big Deal Days am 7.–8. Oktober, Anmeldeschluss 8. September.</b> Amazon hat die Herbst-Event-Termine bestätigt: Prime Big Deal Days laufen am 7. und 8. Oktober; die Deal-Anmeldungen der Verkäufer schließen am 8. September (der 50-$-Frühbucher-Rabatt auf die Anmeldegebühr endete bereits am 5. August). Zusammen mit dem für Q4 bestätigten Peak-Fulfillment-Zuschlag ist damit der komplette Vorlauf terminiert.</p>
+      <div class="takeaway"><b>Takeaway:</b> Rückwärts vom 8. September planen: Deal-Kandidaten &amp; Rabatthöhen festlegen, Lagerbestand für den 7./8. Oktober plus Nachlaufwelle einplanen und Peak-Zuschlag in die Deal-Kalkulation einrechnen. Die nächsten zwei Wochen sind das Q4-Anmeldefenster.</div>
+      <p class="src">Quellen: <a href="https://mikebegg.me/blog/amazon-prime-big-deal-days-2026">Mike Begg</a> · <a href="https://www.gsmarena.com/amazons_prime_big_deal_days_start_on_october_7-amp-69521.php">GSMArena</a> · <a href="https://gotrellis.com/resources/blog/amazon-peak-season">Trellis (Peak Season)</a></p>
+    </div>
+    <div class="item">
+      <p><b>August bleibt Enforcement-Monat.</b> Die Änderungen häufen sich: der harte 75-Zeichen-Titel-Cap (KI-Umstellung läuft), das entfallene Buy-Box-Eligibility-Gate und der zurückkehrende Q4-Peak-Zuschlag fallen alle in wenige Wochen. Amazons Durchsetzung ist 2026 überwiegend automatisiert – KI-Systeme scannen Listings, Verkäuferverhalten, Werbeinhalte und Konto-Metriken laufend, mit spürbar mehr Suspendierungsfällen.</p>
+      <p class="src">Quellen: <a href="https://www.autopilotbrand.com/resources/amazon-policy-tracker">Autopilot Brand – Policy Tracker</a> · <a href="https://novadata.io/resources/news">Nova Analytics</a></p>
+    </div>
+    <div class="item">
+      <p><b>Kurz — kommende Fristen (offizielle Seller News):</b> Ab <b>7. September</b> verschärft Amazon die <b>Prime-Berechtigungskriterien in Deutschland</b>: 15 % Lieferung ≤1 Tag (vorher 10 %), 50 % ≤2 Tage (vorher 45 %), 80 % ≤4 Tage (unverändert) – jetzt die eigene Lieferperformance prüfen. · Ab <b>3. September</b> braucht <b>paneuropäischer FBA ein aktives Angebot in den Niederlanden</b> (Belgien folgt 26. Feb 2027). · Seit <b>24. August</b> lassen sich <b>Testanfrageformulare (TRF) gesammelt einreichen</b> (Compliance-Kategorien mit TIC-Prüfpflicht).</p>
+      <p class="src">Quelle: <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller Central Seller News</a> (21. Aug / 14. Aug / 24. Aug)</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="read">~2,5 Min</span>
+    <p class="blocklabel"><span class="blocknum">2</span> Amazon Content — A+, Store, Brand Story, Bilder</p>
+    <h3>Listing-Content &amp; Markenauftritt</h3>
+    <div class="item">
+      <p><b>A+-Standard 2026: weg vom Studio-Look, hin zu authentischen Lifestyle-Szenen.</b> Die aktuellen A+-Leitfäden verschieben den Qualitätsmaßstab: Statt „studio-perfekter" Freisteller ziehen 2026 authentische Lifestyle-Szenen (Produkt im echten Nutzungskontext), die zugleich informativ statt werblich lesen. Technisch bleibt der Rahmen streng: Bilder als JPEG/PNG, RGB, unter 2 MB, für optimale Schärfe über alle Geräte mindestens 3000 px breit. A+ ist 2026 kein Wettbewerbsvorteil mehr, sondern Pflichtprogramm – der Hebel liegt in Glaubwürdigkeit und Vollständigkeit.</p>
+      <div class="takeaway"><b>Takeaway:</b> Vor dem Q4-Traffic die A+-Module der Hero-ASINs auf zwei Dinge prüfen: authentische Nutzungsbilder (statt reiner Studio-Renderings) und informativer, belegbarer Text – das senkt Retouren und stützt den Listing-Quality-Score, gerade unter Peak-Last.</div>
+      <p class="src">Quellen: <a href="https://greenonion.ai/blog/amazon-aplus-content-ultimate-guide-2026">Green Onion (A+ Guide 2026)</a> · <a href="https://www.rewarx.com/blogs/amazon-product-image-requirements-2026-guide">Rewarx (Bild-Anforderungen 2026)</a></p>
+    </div>
+    <div class="item">
+      <p><b>Erinnerung: KI-Personen &amp; auto-übersetzte Bilder.</b> Weiter aktiv aus den Vorwochen: fotorealistische KI-Personen in Angeboten &amp; A+ müssen per IPTC-Metadaten (<code>contains-synthetic-performer</code>) gekennzeichnet werden; und Amazon übersetzt Text in Nebenbildern automatisch per KI (14 Stores inkl. DE) – wer die Wording-Kontrolle behalten will, lädt eigene lokalisierte Bilder hoch. Beides gehört ins Content-QA vor dem Q4-Push. <b>Stimme dazu (Kelm):</b> „Willst du das wirklich?" – wer bewusst dreisprachige, internationale Bilder gepflegt hat, riskiert, dass der Text am Ende dreimal in derselben Sprache erscheint, und niemand prüft, ob die Übersetzung je Land zulässig ist. Genau deshalb bei textlastigen Bildern eigene, geprüfte Sprachversionen hochladen.</p>
+      <p class="src">Quellen: <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller Central Seller News</a> (22. Juli / 4. Aug) · <a href="https://www.linkedin.com/in/christian-otto-kelm/recent-activity/all/">Christian Otto Kelm (LinkedIn)</a></p>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="read">~2 Min</span>
+    <p class="blocklabel"><span class="blocknum">3</span> Amazon SEO / GEO</p>
+    <h3>Auffindbarkeit – klassisch &amp; generativ</h3>
+    <div class="item">
+      <p><b>Titel-Umstellung: aus Projekt wird Dauerbetrieb – vor dem Q4-Anlauf nachziehen.</b> Amazons KI stellt nicht-konforme Titel weiterhin schrittweise um (über 2026), Angebote bleiben derweil aktiv und bearbeitbar. Für die Auffindbarkeit gilt unverändert Amazons offizielle Aussage: Artikelname (75) und Artikel-Highlights (125) sind beide Sucheingaben, keine wird priorisiert. Vor dem Deal-Traffic im Oktober lohnt der finale Durchgang: sind Kern-Keywords im Titel, Reichweiten-Begriffe sauber in den Highlights – und wo die KI umgestellt hat, das Ergebnis im „Angebotsänderungen überprüfen"-Flow gegengecheckt?</p>
+      <div class="takeaway"><b>Takeaway:</b> Für Deal-ASINs die Migration jetzt abschließen – nicht mitten im Peak, wenn jede Ranking-Verschiebung Umsatz kostet. Highlights als Attribut-Liste, nicht als Fließtext.</div>
+      <p><b>Aus der Praxis (Kelm):</b> In seinen aktuellen Beobachtungen zeigt Christian Otto Kelm, dass die Marke <b>nicht zwingend</b> im neuen Titel landet und dass abgeschnittene Titelbereiche in der Praxis noch unschön aussehen – sein Fazit: „Amazon muss nacharbeiten." Ein Grund mehr, die eigenen Hero-Titel selbst zu kontrollieren statt der KI-Umstellung zu vertrauen.</p>
+      <p class="src">Quellen: <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller Central Seller News</a> (Titel-FAQ) · <a href="https://www.linkedin.com/in/christian-otto-kelm/recent-activity/all/">Christian Otto Kelm (LinkedIn)</a> · Kontext: <a href="https://novadata.io/resources/news">Nova Analytics</a></p>
+    </div>
+    <div class="item">
+      <p><b>GEO: Bewertungsaktualität wird zum Q4-Signal.</b> Für die KI-vermittelte Auswahl in „Alexa for Shopping" zählen weiterhin Attribut-Vollständigkeit, feature-first-Bullets, informativer A+ – und besonders Qualität und <b>Aktualität</b> der Bewertungen. Vor Q4 heißt das: frische, verifizierte Bewertungen auf den Deal-ASINs sind nicht nur Conversion-, sondern auch KI-Sichtbarkeits-Hebel.</p>
+      <p class="src">Quellen: <a href="https://perpetua.io/blog-alexa-for-shopping-amazon-rufus-the-complete-guide-for-brands-and-sellers/">Perpetua</a> · <a href="https://tinuiti.com/blog/amazon/alexa-for-shopping/">Tinuiti</a></p>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="read">~3,5 Min</span>
+    <p class="blocklabel"><span class="blocknum">4</span> Amazon Performance Marketing</p>
+    <h3>Ads, DSP &amp; Bidding</h3>
+    <div class="item">
+      <p><b>🔥 Sponsored Products laufen jetzt standardmäßig außerhalb von Amazon – Gebotsanpassungen greifen dort nicht.</b> Nottorf macht in Radar #7 (20. Aug) auf die neue SP-Einstellung „Wählen Sie aus, wo Ihre Werbeanzeigen erscheinen" aufmerksam: Option 1 (Reichweite außerhalb von Amazon erhöhen) ist <b>standardmäßig gesetzt – auch in jahrealten Kampagnen</b>. Wichtig laut Amazon-Hilfe: Platzierungs-Gebotsanpassungen (Top of Search, Produktseiten) gelten off-Amazon <b>nicht</b>, nur das Basisgebot und dynamische Gebotsstrategien. In den EU-Platzierungsberichten taucht „außerhalb von Amazon" bislang nicht auf – man fährt also ohne Sicht. Umstellen geht in der EU nur je Kampandagne einzeln (Bulk-Spalte bisher nur US); einzelne Seiten/Apps/Creator lassen sich über die kontoweite Negativliste ausschließen.</p>
+      <div class="takeaway hot"><b>Takeaway:</b> Bis Sichtbarkeit &amp; Steuerbarkeit da sind, sollte „Reichweite auf Amazon beschränken" der Default sein – Zeit blocken und Kampagnen umstellen, dann gezielt mit niedrigen Basisgeboten testen (die Off-Amazon-CVR ist meist deutlich niedriger). Gerade vor Q4 kein unkontrolliertes Budget in unmessbare Fläche laufen lassen.</div>
+      <p class="src">Quelle: <a href="https://radar.floriannottorf.com">Florian Nottorf – Radar #7</a> (Newsletter, 20. Aug)</p>
+    </div>
+    <div class="item">
+      <p><b>Nottorfs Einordnung: Amazon baut Inventar für die „Black Box".</b> Sein roter Faden über die letzten Wochen: die KI-Keyword-Beta („Targeting strategy"), die Off-Amazon-Platzierungen und – seit dem 10. August – Creator-Inhalte aus dem Influencer-Programm zeigen alle in dieselbe Richtung. Amazon erschließt in kurzer Folge viel neue Werbefläche, die einzeln schwächer performt und die kaum jemand freiwillig zum vollen Gebot bucht. In einer Black-Box-Kampagne (Google-Performance-Max-Logik) verschwindet diese Frage: Es zählt nur die Gesamt-Performance, schwache Plätze werden mit starken quersubventioniert. Das neue Inventar wird also nicht trotz, sondern <b>durch</b> die Black Box monetarisierbar.</p>
+      <div class="takeaway"><b>Takeaway:</b> Solange du den Beitrag der neuen Flächen nicht getrennt messen kannst, die breiten Defaults abstellen. Sobald Amazon Black-Box-Kampagnen mit sauberem Reporting anbietet: ernsthaft testen und Budget verschieben, wenn die Gesamt-Zahlen es belegen – nicht aus Prinzip verweigern.</div>
+      <p class="src">Quelle: <a href="https://radar.floriannottorf.com">Florian Nottorf – Radar #7</a> (20. Aug)</p>
+    </div>
+    <div class="item">
+      <p><b>DSP baut Inventar &amp; Messung weiter aus.</b> Passend zum Bild: Amazon öffnete am 10. August einen Pfad für <b>publisher-gehostete Creatives in Programmatic-Guaranteed-Deals über Google Ad Manager</b> (33 Märkte) – Buyer müssen die Ad-Datei nicht mehr durch Amazons Systeme schicken. Zudem hat Amazon das <b>Conversion-Path-Reporting weltweit</b> ausgerollt (nach Beta). Zusammen mit dem globalen DSP-Einzelkonto (34 Länder) wächst die DSP zur zentralen Buchungs- und Messschicht – relevant für Q4-Mediapläne mit Upper-Funnel-Anteil.</p>
+      <p class="src">Quellen: <a href="https://ppc.land/amazon-dsp-gains-publisher-hosted-creatives-for-gam-deals-in-33-markets/">PPC.land (GAM-Creatives)</a> · <a href="https://ppc.land/amazon-expands-conversion-path-reporting-worldwide-after-beta-launch/">PPC.land (Conversion Path)</a></p>
+    </div>
+    <div class="item">
+      <p><b>Stimmen &amp; Praxis (LinkedIn, diese Woche live gelesen):</b> <b>Weyrich (Catapult/Front Row)</b> baut Streaming-TV-Werbung ins holistische Planungsmodell ein – Sponsored Ads, DSP und Streaming TV brechen jetzt gemeinsam auf ASIN-Ebene herunter, statt als getrennte Kanal-Silos; außerdem co-hostet Front Row den 14. DIY-E-Commerce-&amp;-AI-Day (10. Sept, Hamburg). · <b>Vette (MOVESELL)</b> vertieft im Podcast das Zusammenspiel von Sport-Sponsoring und DSP (Retargeting der Stadion-/Live-Sport-Reichweite auf die Produktseite) und gewinnt Villeroy &amp; Boch sowie TomTom als DSP-Kunden. · <b>Kliesch (SNOCKS)</b> zeigt, dass eine neue Kategorie (Shapewear) Branding statt reiner Performance braucht – „das drehst du nicht mit einem 15-Sekunden-Ad und Rabattcode". · Aktuelle Ausgaben: Bechlers „Vor der Welle" #26 und Riffels „One More Insight" (August).</p>
+      <p class="src">Quellen: <a href="https://www.linkedin.com/in/benjamin-weyrich/recent-activity/all/">Weyrich</a> · <a href="https://www.linkedin.com/in/florian-vette-b56945193/recent-activity/all/">Vette</a> · <a href="https://www.linkedin.com/in/johannes-kliesch/recent-activity/all/">Kliesch</a> · <a href="https://www.linkedin.com/in/jan-bechler-frontrow/recent-activity/all/">Bechler</a> · <a href="https://www.linkedin.com/in/romy-riffel-856922127/recent-activity/all/">Riffel</a> (alle LinkedIn)</p>
+    </div>
+  </section>
+
+  <!-- ARCHIVE SECTION -->
+  <div class="sectionhead" id="archiv">
+    <p class="tagline">Archiv</p>
+    <h2>Vergangene Wochen</h2>
+  </div>
+
+  <div class="archive">
+    <div class="monthgroup">
+      <p class="monthhead">August 2026</p>
+
+      <details class="weekentry">
+        <summary><span><span class="kw">KW 34</span> · 17.–23. August 2026 · Top-Thema: SP laufen jetzt off-Amazon (Default an) &amp; Amazons Inventar-Aufbau für die „Black Box"</span></summary>
+        <div class="weekbody">
+          <h4>In 60 Sekunden</h4>
+          <p>Nottorf ist mit der Vollausgabe zurück (Radar #7, 20. Aug): Sponsored Products laufen jetzt standardmäßig außerhalb von Amazon (Gebotsanpassungen greifen dort nicht), Expanded Product Targeting ist die stille Voreinstellung, und beides fügt sich in Amazons Inventar-Aufbau für die kommende „Black Box". Dazu: BSA-Countdown auf den 24. August, Prime Big Deal Days terminiert (7./8. Okt, Anmeldeschluss 8. Sept), A+-Standard 2026 wird authentischer.</p>
+
+          <h4>Block 1 · Allgemein, Compliance &amp; Programm-Änderungen</h4>
+          <p><b>BSA-Countdown auf 24. August:</b> Übertragungs- und Verpfändungsverbot (keine Account-Verkäufe, keine Besicherung über künftige Amazon-Umsätze) – Finanzierungs-/Exit-Konstruktionen vorher prüfen. <a href="https://www.velocitysellers.com/2026/08/03/amazon-bsa-update-august-24-2026-transfer-pledge/">Velocity Sellers</a> · <b>Prime Big Deal Days terminiert:</b> 7./8. Oktober, Deal-Anmeldeschluss 8. September. <a href="https://mikebegg.me/blog/amazon-prime-big-deal-days-2026">Mike Begg</a></p>
+          <p><b>🆕 DE-Prime-Kriterien verschärft ab 7. September (21. Aug):</b> Lieferversprechen für Standardgröße/Niedrigpreis – 15 % ≤1 Tag (vorher 10 %), 50 % ≤2 Tage (vorher 45 %), 80 % ≤4 Tage (unverändert); Lieferperformance jetzt prüfen. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a> · <b>Amazon Warehousing &amp; Distribution (AWD) jetzt in Europa</b> (DE/FR/IT/ES/UK, 20. Aug): Langzeit-Massenlager + Auto-Nachschub zu FBA; Q4-Aktion mit Lagergebühr-Erlass 1. Okt–31. Dez, Bestand bis 7. Okt in AWD, Nachschub-Sendung bis 10. Okt. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a></p>
+
+          <h4>Block 2 · Amazon Content — A+, Store, Brand Story, Bilder</h4>
+          <p><b>A+-Standard 2026 wird authentischer:</b> Trend weg von Studio-perfekten Freistellern hin zu authentischen Lifestyle-Szenen; Bildspecs bleiben streng (JPEG/PNG, RGB, &lt;2 MB, ≥3000 px). A+ = Pflichtprogramm, Hebel liegt in Glaubwürdigkeit &amp; Vollständigkeit. <a href="https://greenonion.ai/blog/amazon-aplus-content-ultimate-guide-2026">Green Onion</a> · <a href="https://www.rewarx.com/blogs/amazon-product-image-requirements-2026-guide">Rewarx</a></p>
+
+          <h4>Block 3 · Amazon SEO / GEO</h4>
+          <p><b>Titel-Umstellung im Dauerbetrieb:</b> KI-Umstellung nicht-konformer Titel läuft weiter über 2026 (bereits 984 Mio. Titel aktualisiert); Titel + Highlights bleiben gleichwertige Sucheingaben. Vor Q4 die Deal-ASINs final migrieren. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News (Titel-FAQ)</a></p>
+
+          <h4>Block 4 · Amazon Performance Marketing</h4>
+          <p><b>🔥 SP off-Amazon ist Default (Nottorf Radar #7, 20. Aug):</b> Option „Reichweite außerhalb von Amazon erhöhen" ist voreingestellt, auch in Altkampagnen; Platzierungs-Gebotsanpassungen greifen off-Amazon nicht (nur Basisgebot + dynamische Gebote); in EU-Platzierungsberichten noch unsichtbar; Umstellen nur je Kampagne (Bulk nur US), Ausschluss via kontoweiter Negativliste → Empfehlung: erst „Reichweite beschränken", dann testen. <a href="https://radar.floriannottorf.com">Nottorf – Radar #7</a></p>
+          <p><b>Expanded Product Targeting ist die Voreinstellung:</b> beim Anlegen von Product-Targeting-Kampagnen ist „Erweitert" default (Amazon ergänzt laufend ähnliche/verwandte ASINs) → Bulk-File nach <code>asin-expanded=</code> filtern, Performance gegen enge Targets prüfen, Nuller killen, Gewinner als enges Target harvesten. · <b>These:</b> Off-Amazon-Flächen, KI-Keyword-Beta und Creator-Inhalte (seit 10. Aug) sind Inventar-Aufbau für die Black-Box-Monetarisierung. <a href="https://radar.floriannottorf.com">Nottorf – Radar #7</a></p>
+          <p><b>Stimmen:</b> Weyrich (Catapult) bricht jetzt auch Streaming-TV-Werbung auf ASIN-Ebene herunter (holistische Planung statt Kanal-Silos) und liefert ein Werkzeug gegen Reseller-getriebene Preis-Erosion; Vette (MOVESELL) zeigt DSP-Cases (Würth MODYF: 65 % new-to-brand) und Sport-Sponsoring + DSP als Full-Funnel. <a href="https://www.linkedin.com/in/benjamin-weyrich/recent-activity/all/">Weyrich</a> · <a href="https://www.linkedin.com/in/florian-vette-b56945193/recent-activity/all/">Vette</a> (LinkedIn)</p>
+        </div>
+      </details>
+
+      <details class="weekentry">
+        <summary><span><span class="kw">KW 33</span> · 10.–16. August 2026 · Top-Thema: Artikel-Highlights ab 10. Aug auch am Desktop &amp; SP bei Creators live</span></summary>
+        <div class="weekbody">
+          <h4>In 60 Sekunden</h4>
+          <p>Die Titel-Umstellung kommt im Alltag an: ab 10. August zeigt Amazon die Artikel-Highlights auch auf dem Desktop (bereits 984 Mio. Titel aktualisiert). BSA-Änderung ab 24. Aug angekündigt. Content: Amazon übersetzt Bild-Text automatisch (14 Stores inkl. DE). Performance: Sponsored Products laufen ab 10. Aug auch bei Creators, und Nottorf entdeckt die PMax-artige SP-Einstellung „Targeting strategy".</p>
+
+          <h4>Block 1 · Allgemein, Compliance &amp; Programm-Änderungen</h4>
+          <p><b>🔥 Artikel-Highlights ab 10. Aug auch am Desktop</b> (bisher primär mobil); Amazon meldet &gt;984 Mio. aktualisierte Titel, KI-Umstellung läuft über 2026, Angebote bleiben aktiv/bearbeitbar. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News (Titel-FAQ)</a> · <b>🆕 BSA-Update ab 24. Aug</b> (keine Übertragung, keine Verpfändung künftiger Umsätze) angekündigt. <a href="https://novadata.io/resources/news/amazon-bsa-account-transfer-ban-august-2026">Nova Analytics</a> · <b>Pan-EU-FBA erfordert ab 3. Sept ein aktives Angebot in den Niederlanden</b> (Belgien ab 26. Feb 2027, 14. Aug). <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a></p>
+
+          <h4>Block 2 · Amazon Content — A+, Store, Brand Story, Bilder</h4>
+          <p><b>🔥 Auto-übersetzte Produktbilder (4. Aug):</b> Amazon übersetzt Text in Nebenbildern per KI in die Kundensprache (14 Stores inkl. DE); Hauptbild unberührt; eigenes lokalisiertes Bild überschreibt. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a> · <b>KI-Personen-Kennzeichnung</b> (contains-synthetic-performer) für Angebote &amp; A+. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a></p>
+
+          <h4>Block 3 · Amazon SEO / GEO</h4>
+          <p><b>Amazon offiziell:</b> Auffindbarkeit unverändert, Titel &amp; Artikel-Highlights sind gleichwertige Sucheingaben; Markenname im Titel lassen, Rest verteilen. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a> · <b>GEO:</b> in „Alexa for Shopping" entscheiden Attribut-Vollständigkeit, feature-first-Bullets, informativer A+, Bewertungsqualität. <a href="https://perpetua.io/blog-alexa-for-shopping-amazon-rufus-the-complete-guide-for-brands-and-sellers/">Perpetua</a></p>
+
+          <h4>Block 4 · Amazon Performance Marketing</h4>
+          <p><b>🔥 Sponsored Products ab 10. Aug auch bei Creators</b> (off-Amazon) – bestehende Kampagnen automatisch einbezogen, kein Handlungsbedarf. <a href="https://ppc.land/amazon-puts-sponsored-products-into-creator-hands-on-august-10/">PPC.land</a> · <b>Nottorf (Radar #6, 6. Aug): SP-„Targeting strategy"-Beta</b> – KI ergänzt Keywords/Targets (bis 4 alle 12–24 h), 4 offengelegte Pausier-Regeln; Amazons erster PMax-Baustein. <a href="https://radar.floriannottorf.com">Nottorf – Radar #6</a> · <b>Kontext:</b> Q2-Ad-Umsatz +26 % auf 19,8 Mrd. $ (30. Juli); DSP ein globales Konto über 34 Länder. <a href="https://ppc.land/amazon-dsp-advertisers-gain-a-single-global-account-across-34-countries/">PPC.land</a></p>
+        </div>
+      </details>
+
+      <details class="weekentry">
+        <summary><span><span class="kw">KW 32</span> · 3.–9. August 2026 · Top-Thema: Amazon baut seine „Performance Max" (SP-„Targeting strategy") &amp; auto-übersetzte Produktbilder</span></summary>
+        <div class="weekbody">
+          <h4>In 60 Sekunden</h4>
+          <p>Automatisierung &amp; Content-Eingriffe: Nottorf entdeckt (Radar #6, 6. Aug) die neue SP-Einstellung „Targeting strategy" – Amazons erster sichtbarer Performance-Max-Baustein mit offengelegten Pausier-Regeln. Amazon übersetzt Text in Produktbildern automatisch (14 Stores inkl. DE). Der Verkäufer-Assistent erklärt jetzt, warum man nicht das hervorgehobene Angebot ist. Verkaufsrollen laufen über weltweite Konto-IDs. Und Sponsored Products werden für Creator-Platzierungen geöffnet (Start 10. Aug).</p>
+
+          <h4>Block 1 · Allgemein, Compliance &amp; Programm-Änderungen</h4>
+          <p><b>Verkaufsrollen über Konto-IDs statt Händlertoken (ab 29. Juli, angekündigt 5. Aug).</b> <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a> · <b>Verkäufer-Assistent diagnostiziert Buy-Box-Verlust (4. Aug):</b> KI erklärt je ASIN (bis 10), warum ein Angebot nicht das hervorgehobene ist – inkl. Schritte. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a></p>
+
+          <h4>Block 2 · Amazon Content — A+, Store, Brand Story, Bilder</h4>
+          <p><b>🔥 Automatisch übersetzte Produktbilder (4. Aug):</b> Amazon übersetzt Text in Nebenbildern per KI in die Kundensprache – 14 Stores inkl. DE; Hauptbild bleibt unberührt; eigenes lokalisiertes Bild überschreibt. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a></p>
+
+          <h4>Block 3 · Amazon SEO / GEO</h4>
+          <p><b>Titel-Umstellung im Rollout:</b> KI-Empfehlungen für nicht-konforme Titel laufen seit 27. Juli, gradueller Rollout über 2026; ab 10. Aug Artikel-Highlights auch am Desktop. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a></p>
+
+          <h4>Block 4 · Amazon Performance Marketing</h4>
+          <p><b>🔥 SP-„Targeting strategy" (Beta) – Amazons PMax-Baustein (Nottorf Radar #6, 6. Aug):</b> KI ergänzt Keywords/Product-Targets (bis 4 alle 12–24 h, zum Gebot oder darunter) und pausiert Underperformer nach offengelegten Regeln (keine Impressions in 3 Tagen / keine Klicks in 7 Tagen / &gt;15 % Tagesbudget ohne Conversion / 20+ Klicks ohne Conversion in 14 Tagen). <a href="https://radar.floriannottorf.com">Nottorf – Radar #6</a> · <b>Sponsored Products für Creators geöffnet</b> (angekündigt 4. Aug, Start 10. Aug). <a href="https://ppc.land/amazon-puts-sponsored-products-into-creator-hands-on-august-10/">PPC.land</a></p>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="monthgroup">
+      <p class="monthhead">Juli 2026</p>
+
+      <details class="weekentry">
+        <summary><span><span class="kw">KW 31</span> · 27. Juli – 2. August 2026 · Top-Thema: 75-Zeichen-Titel live (27. Juli), Q2-Zahlen &amp; FBA-New-Selection-Neustart (30. Juli)</span></summary>
+        <div class="weekbody">
+          <h4>In 60 Sekunden</h4>
+          <p>Der Titel-Stichtag ist da: seit 27. Juli gilt die 75-Zeichen-Grenze plus das indexierte Feld „Artikel-Highlights" (125 Zeichen); nicht-migrierte Titel stellt Amazons KI schrittweise um. Am 30. Juli startet das FBA-New-Selection-Programm neu und Amazon legt die Q2-Zahlen vor (Ad-Umsatz +26 % auf 19,8 Mrd. $). DSP-Advertiser bekommen ein globales Konto; die Ads-Zahlungsumstellung greift zum 1. Aug; EU-Right-to-Repair ab 31. Juli. Content: Artikel-Highlights als Attribut-Feld. GEO: Google-KI erfindet eine Geschäftsschließung (Anna Mae's Bakery). Performance: zehn KI-Features für Brand+/Performance+ (22. Juli), Location-TV in CA/MX/BR.</p>
+
+          <h4>Block 1 · Allgemein, Compliance &amp; Programm-Änderungen</h4>
+          <p><b>🔥 75-Zeichen-Titel live (27. Juli):</b> alle Kategorien außer Medien, Zusatzinfos ins indexierte Feld „Artikel-Highlights" (125 Zeichen); Brand Registry 14 Tage Review, ohne Brand Registry direkt. <a href="https://ppc.land/amazon-cuts-product-title-limit-to-75-characters-on-july-27/">PPC.land</a> · <b>🆕 FBA-New-Selection-Neustart (30. Juli):</b> reduzierte Verkaufsgebühr auf die ersten 25.000 $ pro neuer Marken-ASIN (365 Tage). <a href="https://amzscout.net/blog/amazon-news/">AMZScout</a> · <b>Q2-Zahlen (30. Juli):</b> Ad-Umsatz +26 % auf 19,8 Mrd. $, Gesamtumsatz 200,6 Mrd. $ (+20 %), AWS +37 %. <a href="https://www.cnbc.com/2026/07/30/amazon-amzn-q2-earnings-report-2026.html">CNBC</a> · <b>Kurz:</b> EU-Right-to-Repair ab 31. Juli; Ads-Zahlungsumstellung zum 1. Aug. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a></p>
+
+          <h4>Block 2 · Amazon Content — A+, Store, Brand Story, Bilder</h4>
+          <p><b>Artikel-Highlights richtig befüllen:</b> ausgezeichnete Attribute statt Sätze/Keyword-Salat; Identität in den Titel, Sekundär-Differenzierer in die Highlights. <a href="https://www.zonguru.com/blog/amazon-item-highlights-field">ZonGuru</a> · <b>A+ &amp; Brand Story 2026:</b> häufigste Ablehnungsgründe (Preis-/Promo-Sprache, unbelegte Claims, Text-auf-Bild), neu ein QR-Code-Verbot. <a href="https://salesduo.com/blog/complete-amazon-brand-story-guide/">SalesDuo</a></p>
+
+          <h4>Block 3 · Amazon SEO / GEO</h4>
+          <p><b>75+125 verschiebt die Ranking-Signale, nicht ihre Menge:</b> Kern-Keywords in den kurzen Titel, Reichweiten-Keywords in die Highlights. <a href="https://www.zonguru.com/blog/amazon-item-highlights-field">ZonGuru</a> · <b>GEO-Warnung:</b> Googles KI-Übersicht erfand eine Schließung von „Anna Mae's Bakery" → Marken-Monitoring in KI-Antwortmaschinen. <a href="https://ppc.land/google-ai-overview-forces-anna-maes-bakery-to-deny-fake-july-31-closing/">PPC.land</a></p>
+
+          <h4>Block 4 · Amazon Performance Marketing</h4>
+          <p><b>🔥 Zehn KI-Features für Brand+ &amp; Performance+ (22. Juli):</b> Automatic Deal Selection kippt den Single-Deal-Default bei Brand+ Streaming-TV; Audience Signals bringen First-Party-Audiences kostenlos als Optimierungs-Input; Audio GA in 16 Locales. <a href="https://ppc.land/amazon-kills-single-deal-stv-buying-in-brand-as-10-ai-features-land/">PPC.land</a> · <b>Location-TV-Targeting</b> jetzt in CA/MX/BR (21. Juli); DSP ein globales Konto über 34 Länder (30. Juli). <a href="https://ppc.land/amazon-opens-zip-code-tv-ad-targeting-to-3-new-markets-9-months-after-us/">PPC.land</a></p>
+        </div>
+      </details>
+
+      <details class="weekentry">
+        <summary><span><span class="kw">KW 30</span> · 20.–26. Juli 2026 · Top-Thema: Buy-Box-Eligibility-Gate in EU/UK abgeschaltet &amp; FBM Business-Hour-Rate</span></summary>
+        <div class="weekbody">
+          <h4>In 60 Sekunden</h4>
+          <p>Zwei Fristen: Das Buy-Box-Eligibility-Gate ist seit 20. Juli in EU &amp; UK abgeschaltet – Verkäuferleistung ist kein Vorfilter mehr, der Wettbewerber-Pool je ASIN wächst. Ab 30. September verlangt Amazon für Seller-Fulfilled-Bestellungen von Amazon-Business-Kunden eine Business Hour Delivery Rate von 90 % (US, UK, DE). Shein &amp; Temu umgehen die 3-€-EU-Abgabe per EU-Lager. Content: Kelm zu uneinheitlichem Hauptbild-Enforcement. SEO/GEO: letzte Woche vor der Titel-Umstellung, Seller University öffentlich. Performance: Spotify-Podcast-Inventar über die DSP, Sponsored TV mit Demografie-Targeting ohne DSP.</p>
+
+          <h4>Block 1 · Allgemein, Compliance &amp; Programm-Änderungen</h4>
+          <p><b>🔥 Buy-Box-Eligibility-Gate in EU &amp; UK abgeschaltet (20. Juli):</b> leistungsbasierter Vorfilter fällt → Buy-Box-Share wöchentlich gegen die Vor-20.-Juli-Baseline halten. <a href="https://ppc.land/amazon-cuts-featured-offer-eligibility-gate-starting-july-2026/">PPC.land</a> · <b>🆕 FBM: 90 % Business Hour Delivery Rate ab 30. September</b> (US, UK, DE) → B2B-Grenzfälle auf FBA umziehen. <a href="https://novadata.io/resources/news/amazon-fbm-business-hour-delivery-rate-90-percent-september-2026">Nova Analytics</a></p>
+
+          <h4>Block 2 · Amazon Content — A+, Store, Brand Story, Bilder</h4>
+          <p><b>Hauptbild-Regeln vs. Realität:</b> Kelm zeigt uneinheitliches Enforcement – eigene Listings regelkonform halten, Regelbrecher melden. <a href="https://www.linkedin.com/in/christian-otto-kelm/recent-activity/all/">Kelm (LinkedIn)</a> · <b>KI in der Creative-Produktion (Kliesch):</b> KI zieht bei Zielgruppen-/Angle-Recherche, nicht bei Massen-Varianten. <a href="https://www.linkedin.com/in/johannes-kliesch/recent-activity/all/">Kliesch (LinkedIn)</a></p>
+
+          <h4>Block 3 · Amazon SEO / GEO</h4>
+          <p><b>🔥 Letzte Woche vor der Titel-Umstellung (27. Juli):</b> Hero-ASINs kontrolliert selbst migrieren. <a href="https://sellercentral.amazon.com/seller-forums/discussions/t/145b6d0f-999c-4555-896c-c694bda2e470">Seller Forums</a> · <b>GEO: Seller University öffentlich</b> → 125 Themen für Google &amp; KI-Antwortmaschinen. <a href="https://novadata.io/resources/news/amazon-seller-university-public-no-login-july-2026">Nova / PPC Land</a></p>
+
+          <h4>Block 4 · Amazon Performance Marketing</h4>
+          <p><b>🔥 Spotify-Podcast-Ads über die Amazon DSP:</b> Podcast-Inventar via Spotify Ad Exchange + DSP buchbar. <a href="https://ppc.land/amazon-dsp-gains-spotify-podcast-ads-as-reach-hits-90-unique/">PPC.land</a> · <b>Nottorf: Sponsored TV mit Demografie-Targeting</b> ohne DSP, plus SD-Retargeting. <a href="https://www.linkedin.com/in/florian-nottorf/recent-activity/all/">Nottorf (LinkedIn)</a></p>
+        </div>
+      </details>
+
+      <details class="weekentry">
+        <summary><span><span class="kw">KW 29</span> · 13.–19. Juli 2026 · Top-Thema: Buy-Box-Änderung offiziell terminiert (20. Juli) &amp; Green-Claims-Frist</span></summary>
+        <div class="weekbody">
+          <h4>In 60 Sekunden</h4>
+          <p>Amazon macht die Buy-Box-Änderung offiziell: Am 20. Juli entfallen in EU &amp; UK die Verkäufer-Teilnahmevoraussetzungen fürs „Hervorgehobene Angebot". Dazu: Ab 27. September verbietet die EU-Green-Claims-Richtlinie (ECGT) vage Umweltbegriffe. Passkeys für alle Seller-Central-Konten. Premium-A+-Case, Titel-Countdown, „Amazon Content Partners", DSP Omnichannel Metrics mit Retailer-Level-Breakouts.</p>
+
+          <h4>Block 1 · Allgemein, Compliance &amp; Programm-Änderungen</h4>
+          <p><b>🔥 Buy-Box-Teilnahmevoraussetzungen fallen in EU/UK am 20. Juli</b> – Baseline des Buy-Box-Shares dokumentieren. <a href="https://ppc.land/amazon-cuts-featured-offer-eligibility-gate-starting-july-2026/">PPC.land</a> · <b>🆕 Green Claims (ECGT) ab 27. September:</b> generische Umweltaussagen ohne Beleg verboten → Listing-Audit. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a></p>
+
+          <h4>Block 2 · Amazon Content — A+, Store, Brand Story, Bilder</h4>
+          <p><b>Amazon-Case Garden of Life:</b> Premium-A+ mit Videos/Karussells → mehr Interaktion, weniger Rücksendungen. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a></p>
+
+          <h4>Block 3 · Amazon SEO / GEO</h4>
+          <p><b>🔥 Titel-Countdown (27. Juli):</b> Hero-ASINs manuell migrieren, Longtail per Tool. <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a> · <b>GEO: „Amazon Content Partners"</b> – Creator/Publisher werden Quelle für KI-Antworten. <a href="https://novadata.io/resources/news/amazon-content-partners-creator-program-ai-june-2026">Nova Analytics</a></p>
+
+          <h4>Block 4 · Amazon Performance Marketing</h4>
+          <p><b>🔥 DSP Omnichannel Metrics mit Retailer-Level-Breakouts</b> (7. Juli, USA): Offline-Käufe nach DSP-Exposure je Händler. <a href="https://ppc.land/amazon-dsp-now-shows-which-retailers-convert-its-ad-exposure/">PPC.land</a> · <b>Retail Media Europa +16,7 %</b>, Video &gt;50 % des EU-Displays. <a href="https://ppc.land/iab-europe-retail-media-gains-16-7-as-video-passes-half-of-eu-display/">PPC.land</a></p>
+        </div>
+      </details>
+
+      <details class="weekentry">
+        <summary><span><span class="kw">KW 28</span> · 6.–12. Juli 2026 · Top-Thema: Buy-Box-Beben (Verkäuferleistung fällt als Hürde weg) &amp; Q4-Startschuss</span></summary>
+        <div class="weekbody">
+          <h4>In 60 Sekunden</h4>
+          <p>Buy-Box-Beben &amp; Q4-Start: Verkäuferleistung fällt als eigenständige Buy-Box-Hürde weg (Rollout bis Ende 2026), Holiday-Deal-Anmeldungen seit 8. Juli offen, Subscribe &amp; Save öffnet für Vendoren. KI-Bildgenerierung im A+ Inhaltsmanager + KI-Kennzeichnungspflicht. Suche wandert vom Query- zum Shopper-Matching. Prime Day: −8,8 % Ad Spend bei +17,1 % Conversion.</p>
+
+          <h4>Block 1 · Allgemein, Compliance &amp; Programm-Änderungen</h4>
+          <p><b>🔥 Buy Box: Verkäuferleistung kein eigenständiges Ausschlusskriterium mehr</b> – Rollout in Wellen bis Ende 2026. <a href="https://novadata.io/resources/news/amazon-featured-offer-eligibility-gate-removed-july-2026">Nova Analytics</a> · <b>Q4-Start: Holiday-Deal-Anmeldungen seit 8. Juli offen.</b> <a href="https://novadata.io/resources/news/amazon-holiday-deal-submissions-open-july-8-2026">Nova/EcommerceBytes</a></p>
+
+          <h4>Block 2 · Amazon Content — A+, Store, Brand Story, Bilder</h4>
+          <p><b>🔥 KI-Bildgenerierung direkt im A+ Inhaltsmanager</b> + KI-Kennzeichnungspflicht für A+, Markengeschichte &amp; Stores. <a href="https://www.linkedin.com/in/romy-riffel-856922127/recent-activity/all/">Romy Riffel</a></p>
+
+          <h4>Block 3 · Amazon SEO / GEO</h4>
+          <p><b>🔥 Vom Query- zum Shopper-Matching:</b> Amazon-Forschungspapier (synthetische Shopper, 85 %+ Genauigkeit). <a href="https://www.linkedin.com/in/benjamin-weyrich/recent-activity/all/">Benjamin Weyrich</a></p>
+
+          <h4>Block 4 · Amazon Performance Marketing</h4>
+          <p><b>🔥 Prime-Day-Nachlese (CommerceIQ):</b> Ad Spend −8,8 % YoY, Conversion +17,1 %. <a href="https://novadata.io/resources/news/prime-day-2026-ad-spend-down-conversion-up-commerceiq">Nova / PPC Land</a> · <b>Nottorf: „Expanded"-Default beim Product Targeting.</b> <a href="https://www.linkedin.com/in/florian-nottorf/recent-activity/all/">Nottorf</a></p>
+        </div>
+      </details>
+
+      <details class="weekentry">
+        <summary><span><span class="kw">KW 27</span> · 29. Juni – 5. Juli 2026 · Top-Thema: FBM-Pünktlichkeitspflicht (OTDR 90 %) &amp; Prime-Day-Endbilanz</span></summary>
+        <div class="weekbody">
+          <h4>In 60 Sekunden</h4>
+          <p>Fulfillment-Woche: FBM-OTDR ≥90 % ab 15. Juli, 3-€-EU-Importzoll seit 1. Juli scharf, ACCC-Klage gegen Amazon. Listing-Quality-Dashboard rankingrelevant (Attribute Completeness Score), Titel-Countdown, Perplexity „Buy Now", Prime-Day-Endbilanz mit DSP-Shift.</p>
+
+          <h4>Block 1 · Allgemein, Compliance &amp; Programm-Änderungen</h4>
+          <p><b>🔥 FBM: 90 % Pünktlichkeit (OTDR) ab 15. Juli</b>, ab 1. September Deaktivierung möglich. <a href="https://wortfilter.de/amazon-fbm-anforderungen-2026/">Wortfilter</a> · <b>3-€-EU-Importzoll seit 1. Juli live.</b> <a href="https://novadata.io/resources/news">Nova Analytics</a></p>
+
+          <h4>Block 2 · Amazon Content — A+, Store, Brand Story, Bilder</h4>
+          <p><b>🔥 Listing-Quality-Dashboard bewegt Rankings &amp; Buy Box:</b> Attribute Completeness Score – ASINs &lt;65 % verloren ø 4,2 Positionen in drei Wochen. <a href="https://novadata.io/resources/news">Nova/Ecommerce Times</a></p>
+
+          <h4>Block 3 · Amazon SEO / GEO</h4>
+          <p><b>🔥 Titel-Countdown:</b> 27. Juli = 75 Zeichen + „Artikel-Highlights". <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a> · <b>GEO:</b> Perplexity „Buy Now" &gt;2 Mio. Shopper; GenAI-Traffic am Prime Day +3.300 % YoY. <a href="https://finance.yahoo.com/media-advertising/articles/amazon-prime-day-2026-day-143858165.html">Adobe/Yahoo</a></p>
+
+          <h4>Block 4 · Amazon Performance Marketing</h4>
+          <p><b>🔥 Prime-Day-Endbilanz:</b> Event ~26,3 Mrd. $ (+9 %), ~25 % Budget in die DSP verschoben; Tinuiti: DSP +59 %. <a href="https://tinuiti.com/blog/amazon/prime-day-recap/">Tinuiti</a></p>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="monthgroup">
+      <p class="monthhead">Juni 2026</p>
+
+      <details class="weekentry">
+        <summary><span><span class="kw">KW 26</span> · 22.–28. Juni 2026 · Top-Thema: Prime-Day-Woche &amp; Verkäufer-Assistent (KI) in DE live</span></summary>
+        <div class="weekbody">
+          <h4>In 60 Sekunden</h4>
+          <p>Prime-Day-Woche &amp; ein Schwung Tooling: 3-€-EU-Importzoll ab 1. Juli, Verkäufer-Assistent (KI) seit 25. Juni in DE live, neue FBM-Rückgaberegeln. KI-generierte Produktbilder in der Suche; Titel-Umstellung 27. Juli; Prime-Day-Auswertung mit Conversion-Delay-Warnung; Alexa+ Agentic Ads.</p>
+
+          <h4>Block 1 · Allgemein, Compliance &amp; Programm-Änderungen</h4>
+          <p><b>3 € EU-Importzoll ab 1. Juli</b> (FBA &amp; FBM). <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a> · <b>Verkäufer-Assistent (KI) in DE live (25. Juni).</b></p>
+
+          <h4>Block 2 · Amazon Content — A+, Store, Brand Story, Bilder</h4>
+          <p><b>🔥 KI-generierte Produktbilder in der US-Mobile-Suche</b> (seit 3. Juni) – Attribute sauber pflegen. <a href="https://novadata.io/resources/news/amazon-ai-generated-product-images-search-june-2026">Nova Analytics</a></p>
+
+          <h4>Block 3 · Amazon SEO / GEO</h4>
+          <p><b>🔥 Titel ab 27. Juli auf 75 Zeichen + „Artikel-Highlights" (125).</b> <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a> · <b>GEO:</b> Alexa for Shopping vergleicht ASINs on demand. <a href="https://tinuiti.com/blog/amazon/amazon-rufus-ai/">Tinuiti</a></p>
+
+          <h4>Block 4 · Amazon Performance Marketing</h4>
+          <p><b>🔥 Prime-Day-Auswertung – Conversion Delay beachten</b> (Nottorf). <a href="https://www.linkedin.com/in/florian-nottorf/recent-activity/all/">Nottorf</a> · <b>Alexa+ Agentic Ads gelauncht.</b> <a href="https://digiday.com/marketing/amazon-rebuilds-its-ad-machine-for-the-mass-market/">Digiday</a></p>
+        </div>
+      </details>
+
+      <details class="weekentry">
+        <summary><span><span class="kw">KW 25</span> · 15.–21. Juni 2026 · Top-Thema: Titel-Umstellung 27. Juli (75 + 125 Zeichen) · vollständige Ausgabe</span></summary>
+        <div class="weekbody">
+          <h4>In 60 Sekunden</h4>
+          <p>Vier Themenfelder: In <b>Compliance</b> drängen 3 € EU-Importzoll (1. Juli), ESPR-Vernichtungsverbot (19. Juli) und geänderte Verkaufsgebühr (1. Aug). Content: Premium A+ wird Standard. Top-Thema im <b>SEO/GEO</b>-Block: Titel-Split ab 27. Juli. Performance: Ads in „Alexa for Shopping", DSP-Attention-Targeting.</p>
+
+          <h4>Block 1 · Allgemein, Compliance &amp; Programm-Änderungen</h4>
+          <p><b>3 € EU-Importzoll ab 1. Juli</b> · <b>ESPR-Vernichtungs-Beschränkung ab 19. Juli</b> · <b>BSA-Vertrag ab 1. Aug.</b> <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a></p>
+
+          <h4>Block 2 · Amazon Content — A+, Store, Brand Story, Bilder</h4>
+          <p><b>Premium A+ Content jetzt Standard für alle Brand-Registry-Seller.</b> <a href="https://www.amalytix.com/en/blog/amazon-events/">Amalytix</a></p>
+
+          <h4>Block 3 · Amazon SEO / GEO</h4>
+          <p><b>🔥 Produkttitel ab 27. Juli auf 75 Zeichen; Zusatzinfos ins Feld „Artikel-Highlights" (125).</b> <a href="https://sellercentral.amazon.de/seller-news/articles?dateFilter=ALL_TIME">Seller News</a></p>
+
+          <h4>Block 4 · Amazon Performance Marketing</h4>
+          <p><b>Werbung wandert in die KI-Antwort</b> (Sponsored Products/Brands in „Alexa for Shopping"). <a href="https://www.cnbc.com/2026/05/13/amazon-ditches-rufus-ai-chatbot-in-favor-of-alexa-shopping-agent.html">CNBC</a> · <b>Nottorf:</b> auf Gesamtumsatz + TACoS schauen. <a href="https://www.linkedin.com/in/florian-nottorf/recent-activity/all/">Nottorf</a></p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span class="fclaim">rankk – sales are better at the top.</span><br>
+    rankk GmbH · Wiesenstraße 32 · 91126 Schwabach · www.rankk.de<br>
+    Amazon Presseschau · wöchentlich (Mo) · Lesezeit-Budget 20 Min · Quellen jeweils inline verlinkt<br>
+    Überwachte Kanäle: Seller Central Seller News, LinkedIn-Stimmen (live via Browser-Session), Nottorf-Newsletter, Amazon Ads Newsroom, AdExchanger, PPC.land, Wortfilter, Amalytix, onlinemarktplatz.de, Händlerbund, FreshMedia, Nova Analytics.
+  </footer>
+
+</div>
+</body>
+</html>

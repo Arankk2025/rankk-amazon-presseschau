@@ -1,0 +1,4 @@
+# Netlify-Konfiguration für die Amazon Presseschau (statische Single-Page-Site)
+[build]
+  publish = "."
+  command = ""
