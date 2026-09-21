@@ -78,6 +78,17 @@ details.weekentry[open] > summary::after{content:"▴";}
 .weekbody p{font-size:14px;margin:0 0 8px;}
 .placeholder{color:var(--green10);opacity:.8;font-size:14px;padding:6px 2px;}
 
+/* RECHTLICHES */
+.legal{margin-bottom:14px;}
+details.legalentry{background:#fff;border:1px solid var(--grey2);border-radius:12px;margin-bottom:8px;overflow:hidden;}
+details.legalentry > summary{cursor:pointer;padding:13px 18px;font-weight:700;color:var(--green);list-style:none;display:flex;justify-content:space-between;align-items:center;}
+details.legalentry > summary::-webkit-details-marker{display:none;}
+details.legalentry > summary::after{content:"\25BE";color:var(--cyan);font-size:13px;}
+details.legalentry[open] > summary::after{content:"\25B4";}
+.legalbody{padding:4px 18px 18px;border-top:1px solid var(--grey2);}
+.legalbody h4{color:var(--cyan);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:16px 0 4px;}
+.legalbody p{font-size:13.5px;margin:0 0 9px;}
+.legalbody .legalnote{margin-top:16px;padding-top:10px;border-top:1px solid var(--grey2);font-size:12px;color:var(--green10);}
 footer.foot{margin-top:30px;text-align:center;color:var(--green10);font-size:12px;line-height:1.7;}
 footer.foot .fclaim{color:var(--peach);font-weight:700;}
 @media(max-width:600px){.card .read{float:none;display:block;margin-bottom:4px;}.hero h1{font-size:25px;}}
@@ -100,6 +111,8 @@ footer.foot .fclaim{color:var(--peach);font-weight:700;}
     <div class="navrow">
       <a href="#aktuell">Aktuelle Woche</a>
       <a href="#archiv">Archiv</a>
+      <a href="#impressum">Impressum</a>
+      <a href="#datenschutz">Datenschutz</a>
     </div>
   </div>
 </header>
@@ -539,13 +552,139 @@ footer.foot .fclaim{color:var(--peach);font-weight:700;}
     </div>
   </div>
 
+
+  <!-- LEGAL SECTION -->
+  <div class="sectionhead" id="rechtliches">
+    <p class="tagline">Rechtliches</p>
+    <h2>Impressum &amp; Datenschutz</h2>
+  </div>
+
+  <div class="legal">
+
+    <details class="legalentry" id="impressum">
+      <summary><span>Impressum</span></summary>
+      <div class="legalbody">
+        <h4>Seitenbetreiber i. S. d. § 5 DDG</h4>
+        <p><b>rankk GmbH</b><br>
+        Wiesenstraße 32<br>
+        91126 Schwabach</p>
+
+        <h4>Vertreten durch</h4>
+        <p>Geschäftsführer: Philipp Müller &amp; André Unkrig</p>
+
+        <h4>Kontakt</h4>
+        <p>Telefon: +49 9122 / 98 201 98<br>
+        E-Mail: <a href="mailto:info@rankk.de">info@rankk.de</a><br>
+        Web: <a href="https://www.rankk.de">www.rankk.de</a></p>
+
+        <h4>Registereintrag</h4>
+        <p>Eintragung im Handelsregister<br>
+        Registergericht: Registergericht Nürnberg<br>
+        Registernummer: HRB 37195</p>
+
+        <h4>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz</h4>
+        <p>DE 327 809 903</p>
+
+        <h4>Redaktionelle Verantwortung</h4>
+        <p>Die Amazon Presseschau ist ein redaktionelles Eigenangebot der rankk GmbH. Verantwortlich für den Inhalt: André Unkrig, Anschrift wie oben.</p>
+
+        <h4>Haftung für Inhalte</h4>
+        <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+
+        <h4>Haftung für Links</h4>
+        <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+
+        <h4>Urheberrecht</h4>
+        <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+
+        <p class="legalnote">Quelle der Mustertexte zu Haftung und Urheberrecht: <a href="https://www.e-recht24.de">e-recht24.de</a></p>
+      </div>
+    </details>
+
+    <details class="legalentry" id="datenschutz">
+      <summary><span>Datenschutzerklärung</span></summary>
+      <div class="legalbody">
+        <h4>Verantwortliche Stelle</h4>
+        <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Webseite ist:</p>
+        <p><b>rankk GmbH</b><br>
+        Wiesenstraße 32<br>
+        91126 Schwabach<br>
+        Telefon: +49 9122 / 98 201 98<br>
+        E-Mail: <a href="mailto:info@rankk.de">info@rankk.de</a></p>
+
+        <h4>Externe Datenschutzbeauftragte</h4>
+        <p>Andrea Prinz<br>
+        Datenschutz Prinz GmbH<br>
+        Industriestr. 10<br>
+        91154 Roth<br>
+        E-Mail: <a href="mailto:info@datenschutz-prinz.de">info@datenschutz-prinz.de</a></p>
+
+        <h4>Allgemeines zur Datenverarbeitung</h4>
+        <p><b>Umfang der Verarbeitung personenbezogener Daten.</b> Wir erheben und verwenden personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist. Die Erhebung und Verwendung personenbezogener Daten erfolgt regelmäßig nur nach Ihrer Einwilligung. Eine Ausnahme gilt in solchen Fällen, in denen eine vorherige Einholung einer Einwilligung aus tatsächlichen Gründen nicht möglich ist und die Verarbeitung der Daten durch gesetzliche Vorschriften gestattet ist.</p>
+        <p><b>Zwecke und Rechtsgrundlagen.</b> Soweit wir für Verarbeitungsvorgänge Ihrer personenbezogenen Daten eine Einwilligung einholen, dient Art. 6 Abs. 1 lit. a DSGVO als Rechtsgrundlage. Bei der Verarbeitung Ihrer personenbezogenen Daten, die zur Erfüllung eines Vertrages erforderlich sind, dient Art. 6 Abs. 1 lit. b DSGVO als Rechtsgrundlage; dies gilt auch für Verarbeitungsvorgänge, die zur Durchführung vorvertraglicher Maßnahmen erforderlich sind. Soweit eine Verarbeitung zur Erfüllung einer rechtlichen Verpflichtung erforderlich ist, der unser Unternehmen unterliegt, dient Art. 6 Abs. 1 lit. c DSGVO als Rechtsgrundlage. Ist die Verarbeitung zur Wahrung eines berechtigten Interesses unseres Unternehmens oder eines Dritten erforderlich und überwiegen Ihre Interessen, Grundrechte und Grundfreiheiten das erstgenannte Interesse nicht, so dient Art. 6 Abs. 1 lit. f DSGVO als Rechtsgrundlage.</p>
+        <p><b>Datenlöschung und Speicherdauer.</b> Ihre personenbezogenen Daten werden gelöscht oder gesperrt, sobald der Zweck der Speicherung entfällt. Eine Speicherung kann darüber hinaus erfolgen, wenn dies durch den europäischen oder nationalen Gesetzgeber in unionsrechtlichen Verordnungen, Gesetzen oder sonstigen Vorschriften, denen der Verantwortliche unterliegt, vorgesehen wurde. Eine Sperrung oder Löschung Ihrer Daten erfolgt auch dann, wenn eine durch die genannten Normen vorgeschriebene Speicherfrist abläuft, es sei denn, dass eine Erforderlichkeit zur weiteren Speicherung der Daten für einen Vertragsabschluss oder eine Vertragserfüllung besteht.</p>
+        <p><b>Empfänger und Drittlandübermittlungen.</b> Es erfolgt im Rahmen dieser Webseite keine Weitergabe Ihrer Daten an Dritte über die nachstehend genannte Bereitstellung des Hostings hinaus. Die Verarbeitung durch den beteiligten Diensteanbieter erfolgt auf Grundlage eines Auftragsverarbeitungsvertrages gem. Art. 28 DSGVO. Dabei findet eine Datenverarbeitung in Drittländern außerhalb der EU / des EWR unter Einhaltung der Vorgaben aus Art. 46 DSGVO statt.</p>
+
+        <h4>Hosting und Server-Log-Dateien</h4>
+        <p>Diese Webseite wird bei der <b>Netlify, Inc.</b>, 512 2nd Street, Suite 200, San Francisco, CA 94107, USA, gehostet und über deren Content-Delivery-Network ausgeliefert. Beim Aufruf der Seite erhebt und speichert der Anbieter automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt. Hierzu gehören regelmäßig: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und IP-Adresse. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.</p>
+        <p>Die vorübergehende Speicherung Ihrer IP-Adresse durch das System für mindestens die Dauer der Sitzung ist notwendig, um eine Auslieferung der Website an Ihren Rechner zu ermöglichen. In diesen Zwecken liegt auch unser berechtigtes Interesse an der Datenverarbeitung nach Art. 6 Abs. 1 lit. f DSGVO. Die Daten werden gelöscht, sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind. Die Erfassung der Daten zur Bereitstellung der Website und die Speicherung in Logfiles ist für den Betrieb der Internetseite zwingend erforderlich; es besteht folglich für Sie keine Widerspruchsmöglichkeit.</p>
+        <p>Die Verarbeitung erfolgt auf Grundlage eines Auftragsverarbeitungsvertrages mit Netlify. Für die damit verbundene Übermittlung in die USA werden die EU-Standardvertragsklauseln nach Art. 46 DSGVO zugrunde gelegt. Weitere Informationen des Anbieters: <a href="https://www.netlify.com/privacy/">netlify.com/privacy</a>.</p>
+
+        <h4>Keine Cookies, kein Tracking, keine Analyse</h4>
+        <p>Diese Seite setzt <b>keine Cookies</b> und verwendet <b>keine Analyse-, Tracking- oder Reichweitenmessungs-Werkzeuge</b>. Es findet keine Profilbildung und kein Einsatz von Werbe- oder Social-Media-Pixeln statt. Ein Einwilligungsbanner ist deshalb nicht erforderlich. Es werden auch keine Schriftarten, Skripte oder Medien von externen Servern nachgeladen – die Seite ist vollständig in sich geschlossen.</p>
+
+        <h4>Externe Links</h4>
+        <p>Die Presseschau verlinkt zu Quellen Dritter (unter anderem Amazon Seller Central, LinkedIn, Fachmedien). Diese Links werden erst beim aktiven Anklicken durch Sie aufgerufen; eine Einbettung fremder Inhalte in diese Seite findet nicht statt. Mit dem Aufruf einer verlinkten Seite gelten ausschließlich die Datenschutzbestimmungen des jeweiligen Anbieters. Auf deren Datenverarbeitung haben wir keinen Einfluss.</p>
+
+        <h4>Kontakt per E-Mail und per Telefon</h4>
+        <p>Sie können über die im Impressum bereitgestellte E-Mail-Adresse oder Telefonnummer mit uns Kontakt aufnehmen. In diesem Fall werden Ihre E-Mail-Adresse und die mit der Versendung übermittelten Daten oder Ihre Telefonnummer verarbeitet. Eine Weitergabe Ihrer Daten in diesem Zusammenhang erfolgt nur an die beteiligten Diensteanbieter. Ihre Daten werden ausschließlich für die Verarbeitung unserer gemeinsamen Konversation verwendet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; hieran liegt auch unser berechtigtes Interesse. Zielt Ihre Anfrage auf den Abschluss eines Vertrages ab, so ist zusätzliche Rechtsgrundlage Art. 6 Abs. 1 lit. b DSGVO. Ihre Daten werden gelöscht, sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind – bei E-Mails also dann, wenn die jeweilige Konversation beendet und der betroffene Sachverhalt abschließend geklärt ist. Sie können einer Speicherung Ihrer Daten jederzeit widersprechen; in einem solchen Fall kann die Konversation nicht fortgeführt werden.</p>
+
+        <h4>Ihre Betroffenenrechte</h4>
+        <p>Als Betroffener haben Sie folgende Rechte:</p>
+        <p>– gemäß Art. 15 DSGVO das Recht, in dem dort bezeichneten Umfang Auskunft über Ihre von uns verarbeiteten personenbezogenen Daten zu verlangen;<br>
+        – gemäß Art. 16 DSGVO das Recht, unverzüglich die Berichtigung unrichtiger oder Vervollständigung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen;<br>
+        – gemäß Art. 17 DSGVO das Recht, die Löschung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen, soweit nicht die weitere Verarbeitung zur Ausübung des Rechts auf freie Meinungsäußerung und Information, zur Erfüllung einer rechtlichen Verpflichtung, aus Gründen des öffentlichen Interesses oder zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen erforderlich ist;<br>
+        – gemäß Art. 18 DSGVO das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen, soweit die Richtigkeit der Daten von Ihnen bestritten wird, die Verarbeitung unrechtmäßig ist, Sie aber deren Löschung ablehnen, wir die Daten nicht mehr benötigen, Sie diese jedoch zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen benötigen, oder Sie gemäß Art. 21 DSGVO Widerspruch gegen die Verarbeitung eingelegt haben;<br>
+        – gemäß Art. 20 DSGVO das Recht, Ihre personenbezogenen Daten, die Sie uns bereitgestellt haben, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten oder die Übermittlung an einen anderen Verantwortlichen zu verlangen;<br>
+        – gemäß Art. 77 DSGVO das Recht, sich bei der zuständigen Aufsichtsbehörde zu beschweren: Bayerisches Landesamt für Datenschutzaufsicht, Promenade 18, 91522 Ansbach, <a href="mailto:poststelle@lda.bayern.de">poststelle@lda.bayern.de</a>, <a href="https://www.lda.bayern.de">www.lda.bayern.de</a>.</p>
+
+        <h4>Ihr Widerspruchsrecht</h4>
+        <p>Soweit wir zur Wahrung unserer im Rahmen einer Interessenabwägung überwiegenden berechtigten Interessen personenbezogene Daten wie oben erläutert verarbeiten, können Sie dieser Verarbeitung mit Wirkung für die Zukunft widersprechen. Soweit die Verarbeitung zu anderen Zwecken erfolgt, steht Ihnen ein Widerspruchsrecht nur bei Vorliegen von Gründen zu, die sich aus Ihrer besonderen Situation ergeben. Nach Ausübung Ihres Widerspruchsrechts werden wir Ihre personenbezogenen Daten nicht weiter zu diesen Zwecken verarbeiten, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder wenn die Verarbeitung der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen dient. Dies gilt nicht, wenn die Verarbeitung zu Zwecken des Direktmarketings erfolgt; dann werden wir Ihre personenbezogenen Daten nicht weiter zu diesem Zweck verarbeiten.</p>
+
+        <h4>Widerspruch gegen Werbe-Mails</h4>
+        <p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-E-Mails, vor.</p>
+
+        <p class="legalnote">Stand: 21. September 2026 · Diese Erklärung gilt für die Amazon Presseschau unter rankk-amazon-presseschau.netlify.app. Für die Unternehmenswebseite gilt die <a href="https://rankk.de/datenschutz">Datenschutzerklärung unter rankk.de</a>.</p>
+      </div>
+    </details>
+
+  </div>
+
   <footer class="foot">
     <span class="fclaim">rankk – sales are better at the top.</span><br>
-    rankk GmbH · Wiesenstraße 32 · 91126 Schwabach · www.rankk.de<br>
+    rankk GmbH · Wiesenstraße 32 · 91126 Schwabach · <a href="https://www.rankk.de">www.rankk.de</a><br>
+    <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutzerklärung</a><br>
     Amazon Presseschau · wöchentlich (Mo) · Lesezeit-Budget 20 Min · Quellen jeweils inline verlinkt<br>
     Überwachte Kanäle: Seller Central Seller News, LinkedIn-Stimmen (live via Browser-Session), Nottorf-Newsletter, Amazon Ads Newsroom, AdExchanger, PPC.land, Wortfilter, Amalytix, onlinemarktplatz.de, Händlerbund, FreshMedia, Nova Analytics.
   </footer>
 
 </div>
+
+<script>
+(function(){
+  function openTarget(){
+    var h = location.hash;
+    if(!h || h.length < 2) return;
+    var el = document.getElementById(h.slice(1));
+    if(el && el.tagName === 'DETAILS'){
+      el.open = true;
+      el.scrollIntoView({block:'start'});
+    }
+  }
+  window.addEventListener('hashchange', openTarget);
+  openTarget();
+})();
+</script>
+
 </body>
 </html>
